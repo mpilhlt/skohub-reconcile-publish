@@ -11,6 +11,8 @@ export const config = {
   es_pass: process.env.ES_PASSWORD,
   es_index: process.env.ES_INDEX,
   reconcile_service_url: process.env.RECONCILE_SERVICE_URL,
+  reconcile_webhook_path: process.env.RECONCILE_WEBHOOK_PATH,
+  reconcile_webhook_secret: process.env.RECONCILE_WEBHOOK_SECRET,
 }
 
 if (result.error) {

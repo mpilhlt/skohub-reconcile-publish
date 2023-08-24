@@ -23,6 +23,7 @@
     "dotenv": "^16.0.3",
     "elastic-builder": "^2.18.0",
     "express": "^4.18.2",
+    "express-github-webhook": "^1.0.6",
     "jsonld": "^8.1.1",
     "multer": "^1.4.5-lts.1"
   },

@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import fs from "fs";
+import GithubWebHook from 'express-github-webhook'
 import { publishToReconciliation } from "./publishToReconciliation/index.js";
 import { config } from "./config.js";
 
@@ -49,6 +50,19 @@ app.post(
     }
   }
 );
+
+app.use(bodyParser.json()); // must use bodyParser in express
+app.use(webhookHandler); // use our middleware
+
+var webhookHandler = GithubWebHook({ path: config.reconcile_webhook_path, secret: config.reconcile_webhook_secret });
+
+webhookHandler.on('push', function (repo, data) {
+  
+});
+
+webhookHandler.on('error', function (err, req, res) {
+  res.status(400).send(err);
+});
 
 const showError = (error) => (
   `
